@@ -11,9 +11,18 @@ import UIKit
 final class ProductDetailViewController: UITableViewController, Storyboardable {
     var product: StripeAPI.Entity.Product!
 
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.title = product.name
+        productNameLabel.text = product.name
+        captionLabel.text = product.caption
+        descriptionLabel.text = product.description
+
     }
 }
