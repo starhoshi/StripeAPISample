@@ -1,0 +1,6 @@
+framework module Pods_StripeAPISample {
+  umbrella header "Pods-StripeAPISample-umbrella.h"
+
+  export *
+  module * { export * }
+}
