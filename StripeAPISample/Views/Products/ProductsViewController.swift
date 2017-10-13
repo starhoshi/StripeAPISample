@@ -56,33 +56,16 @@ extension ProductsViewController: UITableViewDelegate {
 
 extension ProductsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sku = products[indexPath.section].skus.data[indexPath.row]
+        let product = products[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = sku.attributes.description
-        switch sku.inventory.type {
-        case .finite:
-            if let quantity = sku.inventory.quantity {
-                cell.detailTextLabel?.text = "在庫: \(quantity)"
-            }
-        case .infinite:
-            cell.detailTextLabel?.text = "在庫無限"
-        case .bucket:
-            if let value = sku.inventory.value {
-                cell.detailTextLabel?.text = "Bucket: \(value.rawValue)"
-            }
-        }
+        cell.textLabel?.text = product.name
+        cell.detailTextLabel?.text = product.description
+        cell.accessoryType = .disclosureIndicator
+
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products[section].skus.data.count
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
         return products.count
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return products[section].name
     }
 }
