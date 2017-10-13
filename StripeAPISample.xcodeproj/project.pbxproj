@@ -16,6 +16,9 @@
 		32F8ED181F9075F700F7A386 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */; };
 		32F8ED1C1F90762B00F7A386 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED1B1F90762B00F7A386 /* ProductsViewController.swift */; };
 		32F8ED1E1F90763500F7A386 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED1D1F90763500F7A386 /* CartViewController.swift */; };
+		32F8ED231F9078A000F7A386 /* StripeAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED221F9078A000F7A386 /* StripeAPIRequest.swift */; };
+		32F8ED251F9078CA00F7A386 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED241F9078CA00F7A386 /* StripeAPI.swift */; };
+		32F8ED281F9078E700F7A386 /* StripeAPIEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */; };
 		4B1A1C2E840F18F5E04BCA93 /* Pods_StripeAPISample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */; };
 		6D1B84AE09EB338802443550 /* Pods_StripeAPISampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38231E4EE19E96BEDCCA358 /* Pods_StripeAPISampleTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		32F8ED1B1F90762B00F7A386 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		32F8ED1D1F90763500F7A386 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		32F8ED221F9078A000F7A386 /* StripeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIRequest.swift; sourceTree = "<group>"; };
+		32F8ED241F9078CA00F7A386 /* StripeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
+		32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIEntitiy.swift; sourceTree = "<group>"; };
 		4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StripeAPISample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		517AAC2D03CDD7DFE840D951 /* Pods-StripeAPISampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISampleTests/Pods-StripeAPISampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A1A87F23D662E137ABAA3BD /* Pods-StripeAPISample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISample/Pods-StripeAPISample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,8 +112,8 @@
 		32BF1D901F90670000648759 /* StripeAPISample */ = {
 			isa = PBXGroup;
 			children = (
+				32F8ED211F90789100F7A386 /* Models */,
 				32F8ED0E1F90721400F7A386 /* Extensions */,
-				32F8ED121F90726F00F7A386 /* Models */,
 				32F8ED0B1F9071F500F7A386 /* Protocols */,
 				32F8ED131F90727900F7A386 /* Resources */,
 				32F8ED111F90726300F7A386 /* Views */,
@@ -151,13 +157,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		32F8ED121F90726F00F7A386 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		32F8ED131F90727900F7A386 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +181,16 @@
 				32F8ED1D1F90763500F7A386 /* CartViewController.swift */,
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		32F8ED211F90789100F7A386 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				32F8ED221F9078A000F7A386 /* StripeAPIRequest.swift */,
+				32F8ED241F9078CA00F7A386 /* StripeAPI.swift */,
+				32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AD6D7DF941C0DBE10FBB56C4 /* Frameworks */ = {
@@ -412,8 +421,11 @@
 				32F8ED1E1F90763500F7A386 /* CartViewController.swift in Sources */,
 				32F8ED181F9075F700F7A386 /* MainTabBarViewController.swift in Sources */,
 				32F8ED0D1F90720600F7A386 /* Storyboardable.swift in Sources */,
+				32F8ED251F9078CA00F7A386 /* StripeAPI.swift in Sources */,
 				32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */,
 				32BF1D921F90670000648759 /* AppDelegate.swift in Sources */,
+				32F8ED281F9078E700F7A386 /* StripeAPIEntitiy.swift in Sources */,
+				32F8ED231F9078A000F7A386 /* StripeAPIRequest.swift in Sources */,
 				32F8ED1C1F90762B00F7A386 /* ProductsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

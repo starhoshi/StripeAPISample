@@ -9,27 +9,67 @@
 import UIKit
 
 class ProductsViewController: UIViewController {
+    let tableView = UITableView()
+    var products: [StripeAPI.Entity.Product] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Products"
 
-        // Do any additional setup after loading the view.
+        view = tableView
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        StripeAPI.Product.all { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.products = response.data
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+extension ProductsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+}
+
+extension ProductsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let sku = products[indexPath.section].skus.data[indexPath.row]
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.textLabel?.text = sku.attributes.description
+        switch sku.inventory.type {
+        case .finite:
+            if let quantity = sku.inventory.quantity {
+                cell.detailTextLabel?.text = "在庫: \(quantity)"
+            }
+        case .infinite:
+            cell.detailTextLabel?.text = "在庫無限"
+        case .bucket:
+            if let value = sku.inventory.value {
+                cell.detailTextLabel?.text = "Bucket: \(value.rawValue)"
+            }
+        }
+        return cell
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products[section].skus.data.count
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return products.count
     }
-    */
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return products[section].name
+    }
 }
