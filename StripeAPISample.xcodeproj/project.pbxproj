@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		32BF1D921F90670000648759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF1D911F90670000648759 /* AppDelegate.swift */; };
-		32BF1D941F90670000648759 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF1D931F90670000648759 /* ViewController.swift */; };
-		32BF1D971F90670000648759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D951F90670000648759 /* Main.storyboard */; };
 		32BF1D991F90670000648759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D981F90670000648759 /* Assets.xcassets */; };
 		32BF1D9C1F90670000648759 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */; };
 		32BF1DA71F90670000648759 /* StripeAPISampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF1DA61F90670000648759 /* StripeAPISampleTests.swift */; };
 		32F8ED0D1F90720600F7A386 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED0C1F90720600F7A386 /* Storyboardable.swift */; };
 		32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED0F1F90722E00F7A386 /* NSObjectProtocol+Ex.swift */; };
+		32F8ED181F9075F700F7A386 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */; };
+		32F8ED1C1F90762B00F7A386 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED1B1F90762B00F7A386 /* ProductsViewController.swift */; };
+		32F8ED1E1F90763500F7A386 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED1D1F90763500F7A386 /* CartViewController.swift */; };
 		4B1A1C2E840F18F5E04BCA93 /* Pods_StripeAPISample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */; };
 		6D1B84AE09EB338802443550 /* Pods_StripeAPISampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38231E4EE19E96BEDCCA358 /* Pods_StripeAPISampleTests.framework */; };
 /* End PBXBuildFile section */
@@ -32,8 +33,6 @@
 /* Begin PBXFileReference section */
 		32BF1D8E1F90670000648759 /* StripeAPISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StripeAPISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BF1D911F90670000648759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32BF1D931F90670000648759 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		32BF1D961F90670000648759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32BF1D981F90670000648759 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32BF1D9B1F90670000648759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32BF1D9D1F90670000648759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +41,9 @@
 		32BF1DA81F90670000648759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32F8ED0C1F90720600F7A386 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		32F8ED0F1F90722E00F7A386 /* NSObjectProtocol+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Ex.swift"; sourceTree = "<group>"; };
+		32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		32F8ED1B1F90762B00F7A386 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		32F8ED1D1F90763500F7A386 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StripeAPISample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		517AAC2D03CDD7DFE840D951 /* Pods-StripeAPISampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISampleTests/Pods-StripeAPISampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A1A87F23D662E137ABAA3BD /* Pods-StripeAPISample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISample/Pods-StripeAPISample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,8 +144,9 @@
 		32F8ED111F90726300F7A386 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				32BF1D951F90670000648759 /* Main.storyboard */,
-				32BF1D931F90670000648759 /* ViewController.swift */,
+				32F8ED1A1F90760E00F7A386 /* Cart */,
+				32F8ED191F90760400F7A386 /* Products */,
+				32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +166,22 @@
 				32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		32F8ED191F90760400F7A386 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32F8ED1B1F90762B00F7A386 /* ProductsViewController.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		32F8ED1A1F90760E00F7A386 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				32F8ED1D1F90763500F7A386 /* CartViewController.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		AD6D7DF941C0DBE10FBB56C4 /* Frameworks */ = {
@@ -265,7 +284,6 @@
 			files = (
 				32BF1D9C1F90670000648759 /* LaunchScreen.storyboard in Resources */,
 				32BF1D991F90670000648759 /* Assets.xcassets in Resources */,
-				32BF1D971F90670000648759 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,10 +409,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32BF1D941F90670000648759 /* ViewController.swift in Sources */,
+				32F8ED1E1F90763500F7A386 /* CartViewController.swift in Sources */,
+				32F8ED181F9075F700F7A386 /* MainTabBarViewController.swift in Sources */,
 				32F8ED0D1F90720600F7A386 /* Storyboardable.swift in Sources */,
 				32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */,
 				32BF1D921F90670000648759 /* AppDelegate.swift in Sources */,
+				32F8ED1C1F90762B00F7A386 /* ProductsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,15 +437,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		32BF1D951F90670000648759 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				32BF1D961F90670000648759 /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 		32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -557,7 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.starhoshi.StripeAPISample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -573,7 +584,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.starhoshi.StripeAPISample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
