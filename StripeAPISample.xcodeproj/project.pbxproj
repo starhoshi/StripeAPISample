@@ -19,6 +19,8 @@
 		32F8ED231F9078A000F7A386 /* StripeAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED221F9078A000F7A386 /* StripeAPIRequest.swift */; };
 		32F8ED251F9078CA00F7A386 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED241F9078CA00F7A386 /* StripeAPI.swift */; };
 		32F8ED281F9078E700F7A386 /* StripeAPIEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */; };
+		32F8ED2B1F90882B00F7A386 /* ProductDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F8ED2A1F90882B00F7A386 /* ProductDetailViewController.storyboard */; };
+		32F8ED2D1F90883800F7A386 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED2C1F90883800F7A386 /* ProductDetailViewController.swift */; };
 		4B1A1C2E840F18F5E04BCA93 /* Pods_StripeAPISample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */; };
 		6D1B84AE09EB338802443550 /* Pods_StripeAPISampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38231E4EE19E96BEDCCA358 /* Pods_StripeAPISampleTests.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		32F8ED221F9078A000F7A386 /* StripeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIRequest.swift; sourceTree = "<group>"; };
 		32F8ED241F9078CA00F7A386 /* StripeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
 		32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIEntitiy.swift; sourceTree = "<group>"; };
+		32F8ED2A1F90882B00F7A386 /* ProductDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetailViewController.storyboard; sourceTree = "<group>"; };
+		32F8ED2C1F90883800F7A386 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StripeAPISample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		517AAC2D03CDD7DFE840D951 /* Pods-StripeAPISampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISampleTests/Pods-StripeAPISampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A1A87F23D662E137ABAA3BD /* Pods-StripeAPISample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISample/Pods-StripeAPISample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		32F8ED111F90726300F7A386 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				32F8ED291F90881400F7A386 /* ProductDetail */,
 				32F8ED1A1F90760E00F7A386 /* Cart */,
 				32F8ED191F90760400F7A386 /* Products */,
 				32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */,
@@ -191,6 +196,15 @@
 				32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		32F8ED291F90881400F7A386 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				32F8ED2A1F90882B00F7A386 /* ProductDetailViewController.storyboard */,
+				32F8ED2C1F90883800F7A386 /* ProductDetailViewController.swift */,
+			);
+			path = ProductDetail;
 			sourceTree = "<group>";
 		};
 		AD6D7DF941C0DBE10FBB56C4 /* Frameworks */ = {
@@ -292,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32BF1D9C1F90670000648759 /* LaunchScreen.storyboard in Resources */,
+				32F8ED2B1F90882B00F7A386 /* ProductDetailViewController.storyboard in Resources */,
 				32BF1D991F90670000648759 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +440,7 @@
 				32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */,
 				32BF1D921F90670000648759 /* AppDelegate.swift in Sources */,
 				32F8ED281F9078E700F7A386 /* StripeAPIEntitiy.swift in Sources */,
+				32F8ED2D1F90883800F7A386 /* ProductDetailViewController.swift in Sources */,
 				32F8ED231F9078A000F7A386 /* StripeAPIRequest.swift in Sources */,
 				32F8ED1C1F90762B00F7A386 /* ProductsViewController.swift in Sources */,
 			);

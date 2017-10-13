@@ -50,7 +50,9 @@ class ProductsViewController: UIViewController {
 
 extension ProductsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        let productDetailVC = ProductDetailViewController.instantiate()
+        productDetailVC.product = products[indexPath.row]
+        navigationController?.pushViewController(productDetailVC, animated: true)
     }
 }
 
