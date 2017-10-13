@@ -13,6 +13,8 @@
 		32BF1D991F90670000648759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D981F90670000648759 /* Assets.xcassets */; };
 		32BF1D9C1F90670000648759 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */; };
 		32BF1DA71F90670000648759 /* StripeAPISampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF1DA61F90670000648759 /* StripeAPISampleTests.swift */; };
+		32F8ED0D1F90720600F7A386 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED0C1F90720600F7A386 /* Storyboardable.swift */; };
+		32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED0F1F90722E00F7A386 /* NSObjectProtocol+Ex.swift */; };
 		4B1A1C2E840F18F5E04BCA93 /* Pods_StripeAPISample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */; };
 		6D1B84AE09EB338802443550 /* Pods_StripeAPISampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38231E4EE19E96BEDCCA358 /* Pods_StripeAPISampleTests.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		32BF1DA21F90670000648759 /* StripeAPISampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StripeAPISampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BF1DA61F90670000648759 /* StripeAPISampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPISampleTests.swift; sourceTree = "<group>"; };
 		32BF1DA81F90670000648759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32F8ED0C1F90720600F7A386 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
+		32F8ED0F1F90722E00F7A386 /* NSObjectProtocol+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Ex.swift"; sourceTree = "<group>"; };
 		4E4B4ADE39F89270C0DD137C /* Pods_StripeAPISample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StripeAPISample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		517AAC2D03CDD7DFE840D951 /* Pods-StripeAPISampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISampleTests/Pods-StripeAPISampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A1A87F23D662E137ABAA3BD /* Pods-StripeAPISample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StripeAPISample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StripeAPISample/Pods-StripeAPISample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,12 +104,14 @@
 		32BF1D901F90670000648759 /* StripeAPISample */ = {
 			isa = PBXGroup;
 			children = (
+				32F8ED131F90727900F7A386 /* Resources */,
+				32F8ED121F90726F00F7A386 /* Models */,
+				32F8ED111F90726300F7A386 /* Views */,
+				32F8ED0E1F90721400F7A386 /* Extensions */,
+				32F8ED0B1F9071F500F7A386 /* Protocols */,
 				32BF1D911F90670000648759 /* AppDelegate.swift */,
 				32BF1D931F90670000648759 /* ViewController.swift */,
 				32BF1D951F90670000648759 /* Main.storyboard */,
-				32BF1D981F90670000648759 /* Assets.xcassets */,
-				32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */,
-				32BF1D9D1F90670000648759 /* Info.plist */,
 			);
 			path = StripeAPISample;
 			sourceTree = "<group>";
@@ -117,6 +123,46 @@
 				32BF1DA81F90670000648759 /* Info.plist */,
 			);
 			path = StripeAPISampleTests;
+			sourceTree = "<group>";
+		};
+		32F8ED0B1F9071F500F7A386 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				32F8ED0C1F90720600F7A386 /* Storyboardable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		32F8ED0E1F90721400F7A386 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32F8ED0F1F90722E00F7A386 /* NSObjectProtocol+Ex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		32F8ED111F90726300F7A386 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		32F8ED121F90726F00F7A386 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		32F8ED131F90727900F7A386 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32BF1D981F90670000648759 /* Assets.xcassets */,
+				32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */,
+				32BF1D9D1F90670000648759 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		AD6D7DF941C0DBE10FBB56C4 /* Frameworks */ = {
@@ -346,6 +392,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				32BF1D941F90670000648759 /* ViewController.swift in Sources */,
+				32F8ED0D1F90720600F7A386 /* Storyboardable.swift in Sources */,
+				32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */,
 				32BF1D921F90670000648759 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = StripeAPISample/Info.plist;
+				INFOPLIST_FILE = StripeAPISample/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.starhoshi.StripeAPISample;
@@ -517,7 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = StripeAPISample/Info.plist;
+				INFOPLIST_FILE = StripeAPISample/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.starhoshi.StripeAPISample;
