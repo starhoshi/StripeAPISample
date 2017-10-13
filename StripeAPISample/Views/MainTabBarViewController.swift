@@ -26,8 +26,8 @@ final class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nv = UINavigationController(rootViewController: productsVC)
-        let nv2 = UINavigationController(rootViewController: cartVC)
-        setViewControllers([nv, nv2], animated: false)
+        let nav = UINavigationController(rootViewController: productsVC)
+        let nav2 = UINavigationController(rootViewController: cartVC)
+        setViewControllers([nav, nav2], animated: false)
     }
 }

@@ -7,8 +7,18 @@
 //
 
 import Foundation
+
 extension StripeAPI {
     struct Entity {
+    }
+}
+
+extension StripeAPI.Entity {
+    struct ListResponse<T: Decodable>: Decodable {
+        let object: String
+        let url: String
+        let has_more: Bool
+        let data:[T]
     }
 }
 
@@ -42,15 +52,6 @@ extension StripeAPI.Entity {
 }
 
 extension StripeAPI.Entity {
-    struct ListResponse<T: Decodable>: Decodable {
-        let object: String
-        let url: String
-        let has_more: Bool
-        let data:[T]
-    }
-}
-
-extension StripeAPI.Entity {
     struct Product: Decodable {
         let id: String
         let object: String
@@ -60,9 +61,9 @@ extension StripeAPI.Entity {
         let created: TimeInterval
         //        let deactivate_on: [?]
         let description: String
-        //        let images: [URL]
+        let images: [URL]
         let livemode: Bool
-        //        let metadata: [:]
+        let metadata: [String: String]
         let name: String
         let packageDimensions: PackageDimensions
         let shippable: Bool
@@ -78,7 +79,9 @@ extension StripeAPI.Entity {
             case caption
             case created
             case description
+            case images
             case livemode
+            case metadata
             case name
             case packageDimensions = "package_dimensions"
             case shippable
