@@ -110,8 +110,6 @@
 				32F8ED0E1F90721400F7A386 /* Extensions */,
 				32F8ED0B1F9071F500F7A386 /* Protocols */,
 				32BF1D911F90670000648759 /* AppDelegate.swift */,
-				32BF1D931F90670000648759 /* ViewController.swift */,
-				32BF1D951F90670000648759 /* Main.storyboard */,
 			);
 			path = StripeAPISample;
 			sourceTree = "<group>";
@@ -144,6 +142,8 @@
 		32F8ED111F90726300F7A386 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				32BF1D931F90670000648759 /* ViewController.swift */,
+				32BF1D951F90670000648759 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
