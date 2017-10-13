@@ -84,11 +84,11 @@
 		32BF1D851F90670000648759 = {
 			isa = PBXGroup;
 			children = (
+				AD6D7DF941C0DBE10FBB56C4 /* Frameworks */,
+				1A194B98772DA9FA66748A60 /* Pods */,
+				32BF1D8F1F90670000648759 /* Products */,
 				32BF1D901F90670000648759 /* StripeAPISample */,
 				32BF1DA51F90670000648759 /* StripeAPISampleTests */,
-				32BF1D8F1F90670000648759 /* Products */,
-				1A194B98772DA9FA66748A60 /* Pods */,
-				AD6D7DF941C0DBE10FBB56C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,11 +104,11 @@
 		32BF1D901F90670000648759 /* StripeAPISample */ = {
 			isa = PBXGroup;
 			children = (
-				32F8ED131F90727900F7A386 /* Resources */,
-				32F8ED121F90726F00F7A386 /* Models */,
-				32F8ED111F90726300F7A386 /* Views */,
 				32F8ED0E1F90721400F7A386 /* Extensions */,
+				32F8ED121F90726F00F7A386 /* Models */,
 				32F8ED0B1F9071F500F7A386 /* Protocols */,
+				32F8ED131F90727900F7A386 /* Resources */,
+				32F8ED111F90726300F7A386 /* Views */,
 				32BF1D911F90670000648759 /* AppDelegate.swift */,
 			);
 			path = StripeAPISample;
@@ -117,8 +117,8 @@
 		32BF1DA51F90670000648759 /* StripeAPISampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				32BF1DA61F90670000648759 /* StripeAPISampleTests.swift */,
 				32BF1DA81F90670000648759 /* Info.plist */,
+				32BF1DA61F90670000648759 /* StripeAPISampleTests.swift */,
 			);
 			path = StripeAPISampleTests;
 			sourceTree = "<group>";
@@ -142,8 +142,8 @@
 		32F8ED111F90726300F7A386 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				32BF1D931F90670000648759 /* ViewController.swift */,
 				32BF1D951F90670000648759 /* Main.storyboard */,
+				32BF1D931F90670000648759 /* ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				32BF1D981F90670000648759 /* Assets.xcassets */,
-				32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */,
 				32BF1D9D1F90670000648759 /* Info.plist */,
+				32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -423,6 +423,7 @@
 				32BF1D961F90670000648759 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */ = {
@@ -431,6 +432,7 @@
 				32BF1D9B1F90670000648759 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
