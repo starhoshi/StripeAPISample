@@ -10,6 +10,8 @@ import UIKit
 
 class ProductsViewController: UIViewController {
     let tableView = UITableView()
+    var refreshControl = UIRefreshControl()
+
     var products: [StripeAPI.Entity.Product] = [] {
         didSet {
             tableView.reloadData()
@@ -23,7 +25,18 @@ class ProductsViewController: UIViewController {
         view = tableView
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(self.onPulledRefresh(sender:)), for: .valueChanged)
 
+        sendProductAllAPI()
+    }
+
+    @objc private func onPulledRefresh(sender: UIRefreshControl) {
+        sendProductAllAPI()
+        refreshControl.endRefreshing()
+    }
+
+    func sendProductAllAPI() {
         StripeAPI.Product.all { [weak self] result in
             switch result {
             case .success(let response):

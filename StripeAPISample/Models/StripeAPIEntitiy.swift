@@ -60,7 +60,7 @@ extension StripeAPI.Entity {
         let caption: String
         let created: TimeInterval
         //        let deactivate_on: [?]
-        let description: String
+        let description: String?
         let images: [URL]
         let livemode: Bool
         let metadata: [String: String]
