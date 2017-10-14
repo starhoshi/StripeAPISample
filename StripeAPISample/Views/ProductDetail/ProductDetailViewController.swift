@@ -47,18 +47,20 @@ extension ProductDetailViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let sku = product.skus.data[indexPath.row]
         cell.textLabel?.text = sku.attributes.description
+        var detailText = "\(sku.price)円"
         switch sku.inventory.type {
         case .bucket:
             if let value = sku.inventory.value{
-                cell.detailTextLabel?.text = "Bucket: \(value)"
+                detailText += " / Bucket: \(value)"
             }
         case .finite:
             if let quantity = sku.inventory.quantity{
-                cell.detailTextLabel?.text = "在庫数: \(quantity)"
+                detailText += " / 在庫数: \(quantity)"
             }
         case .infinite:
-            cell.detailTextLabel?.text = "在庫無限"
+            detailText += " / 在庫無限"
         }
+        cell.detailTextLabel?.text = detailText
         cell.accessoryType = .disclosureIndicator
         return cell
     }

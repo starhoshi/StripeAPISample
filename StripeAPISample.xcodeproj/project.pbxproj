@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3213E1481F925148002788B1 /* SKUTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E1471F925148002788B1 /* SKUTableViewController.swift */; };
+		3213E14A1F925157002788B1 /* SKUTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3213E1491F925157002788B1 /* SKUTableViewController.storyboard */; };
 		32BF1D921F90670000648759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF1D911F90670000648759 /* AppDelegate.swift */; };
 		32BF1D991F90670000648759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D981F90670000648759 /* Assets.xcassets */; };
 		32BF1D9C1F90670000648759 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3213E1471F925148002788B1 /* SKUTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKUTableViewController.swift; sourceTree = "<group>"; };
+		3213E1491F925157002788B1 /* SKUTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SKUTableViewController.storyboard; sourceTree = "<group>"; };
 		32BF1D8E1F90670000648759 /* StripeAPISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StripeAPISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BF1D911F90670000648759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32BF1D981F90670000648759 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +95,15 @@
 				517AAC2D03CDD7DFE840D951 /* Pods-StripeAPISampleTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3213E1461F92510B002788B1 /* SKU */ = {
+			isa = PBXGroup;
+			children = (
+				3213E1471F925148002788B1 /* SKUTableViewController.swift */,
+				3213E1491F925157002788B1 /* SKUTableViewController.storyboard */,
+			);
+			path = SKU;
 			sourceTree = "<group>";
 		};
 		32BF1D851F90670000648759 = {
@@ -154,6 +167,7 @@
 		32F8ED111F90726300F7A386 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3213E1461F92510B002788B1 /* SKU */,
 				32F8ED291F90881400F7A386 /* ProductDetail */,
 				32F8ED1A1F90760E00F7A386 /* Cart */,
 				32F8ED191F90760400F7A386 /* Products */,
@@ -307,6 +321,7 @@
 			files = (
 				32BF1D9C1F90670000648759 /* LaunchScreen.storyboard in Resources */,
 				32F8ED2B1F90882B00F7A386 /* ProductDetailViewController.storyboard in Resources */,
+				3213E14A1F925157002788B1 /* SKUTableViewController.storyboard in Resources */,
 				32BF1D991F90670000648759 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +454,7 @@
 				32F8ED251F9078CA00F7A386 /* StripeAPI.swift in Sources */,
 				32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */,
 				32BF1D921F90670000648759 /* AppDelegate.swift in Sources */,
+				3213E1481F925148002788B1 /* SKUTableViewController.swift in Sources */,
 				32F8ED281F9078E700F7A386 /* StripeAPIEntitiy.swift in Sources */,
 				32F8ED2D1F90883800F7A386 /* ProductDetailViewController.swift in Sources */,
 				32F8ED231F9078A000F7A386 /* StripeAPIRequest.swift in Sources */,
