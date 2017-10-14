@@ -8,11 +8,21 @@
 
 import UIKit
 
-class SKUTableViewController: UITableViewController {
+final class SKUTableViewController: UITableViewController, Storyboardable {
+    var product: StripeAPI.Entity.Product!
+    var sku: StripeAPI.Entity.SKU!
+
+    @IBOutlet weak var skuLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var paymentLabel: UILabel!
+    @IBOutlet weak var ShippingLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.title = product.name
+        skuLabel.text = sku.attributes.description
+        priceLabel.text = "\(sku.price)円"
     }
 }

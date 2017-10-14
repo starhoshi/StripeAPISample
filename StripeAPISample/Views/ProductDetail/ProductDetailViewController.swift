@@ -35,6 +35,11 @@ final class ProductDetailViewController: UIViewController, Storyboardable {
 extension ProductDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
+        let sku = product.skus.data[indexPath.row]
+        let skuVC = SKUTableViewController.instantiate()
+        skuVC.product = product
+        skuVC.sku = sku
+        navigationController?.pushViewController(skuVC, animated: true)
     }
 }
 
