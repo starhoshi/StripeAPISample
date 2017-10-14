@@ -106,6 +106,23 @@
 			path = SKU;
 			sourceTree = "<group>";
 		};
+		3213E14B1F926350002788B1 /* StripeAPI */ = {
+			isa = PBXGroup;
+			children = (
+				32F8ED221F9078A000F7A386 /* StripeAPIRequest.swift */,
+				32F8ED241F9078CA00F7A386 /* StripeAPI.swift */,
+				32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */,
+			);
+			path = StripeAPI;
+			sourceTree = "<group>";
+		};
+		3213E14C1F926361002788B1 /* CustomerKeyAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomerKeyAPI;
+			sourceTree = "<group>";
+		};
 		32BF1D851F90670000648759 = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +222,8 @@
 		32F8ED211F90789100F7A386 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				32F8ED221F9078A000F7A386 /* StripeAPIRequest.swift */,
-				32F8ED241F9078CA00F7A386 /* StripeAPI.swift */,
-				32F8ED271F9078E700F7A386 /* StripeAPIEntitiy.swift */,
+				3213E14C1F926361002788B1 /* CustomerKeyAPI */,
+				3213E14B1F926350002788B1 /* StripeAPI */,
 			);
 			path = Models;
 			sourceTree = "<group>";
