@@ -41,8 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let stripeConfig = STPPaymentConfiguration.shared()
         stripeConfig.publishableKey = publishableKey
         stripeConfig.companyName = "Cookpad Inc."
-        stripeConfig.requiredBillingAddressFields = .full
-        stripeConfig.requiredShippingAddressFields = .all
+        stripeConfig.requiredBillingAddressFields = .zip
+        stripeConfig.requiredShippingAddressFields = .postalAddress
         stripeConfig.shippingType = .shipping
         stripeConfig.additionalPaymentMethods = .all
 

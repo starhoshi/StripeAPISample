@@ -134,7 +134,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X4G-sg-Iqr">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X4G-sg-Iqr">
                                                     <rect key="frame" x="316" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -155,15 +155,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-ZW-4fk">
-                                                    <rect key="frame" x="172" y="4.5" width="30" height="33"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hb3-0p-JDQ">
+                                                    <rect key="frame" x="172.5" y="11" width="29.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="Buy"/>
-                                                </button>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ahw-ZW-4fk" firstAttribute="centerY" secondItem="yS2-3q-B30" secondAttribute="centerY" id="NtZ-3H-TEG"/>
-                                                <constraint firstItem="Ahw-ZW-4fk" firstAttribute="centerX" secondItem="yS2-3q-B30" secondAttribute="centerX" id="c5z-bZ-2Yc"/>
+                                                <constraint firstItem="Hb3-0p-JDQ" firstAttribute="centerX" secondItem="yS2-3q-B30" secondAttribute="centerX" id="KsC-jr-wHv"/>
+                                                <constraint firstItem="Hb3-0p-JDQ" firstAttribute="centerY" secondItem="yS2-3q-B30" secondAttribute="centerY" id="Z5U-mg-8yr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -177,6 +178,7 @@
                     </tableView>
                     <connections>
                         <outlet property="ShippingLabel" destination="81a-n6-LqF" id="f9c-nd-WII"/>
+                        <outlet property="buLabel" destination="Hb3-0p-JDQ" id="XNB-Fz-9BP"/>
                         <outlet property="paymentLabel" destination="bAP-G6-JQY" id="nJd-sq-XMM"/>
                         <outlet property="priceLabel" destination="2lI-Mg-07I" id="nG6-fu-fDf"/>
                         <outlet property="skuLabel" destination="vRN-mL-aVP" id="Pn8-kt-SF1"/>
