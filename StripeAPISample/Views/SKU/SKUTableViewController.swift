@@ -117,8 +117,16 @@ extension SKUTableViewController: STPPaymentContextDelegate {
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        // TODO: サーバで決済
-        completion(nil) // サーバでの決済が完了した
+        MyAPI.Charge.create(result: paymentResult,
+                            amount: paymentContext.paymentAmount,
+                            shippingAddress: paymentContext.shippingAddress, shippingMethod: paymentContext.selectedShippingMethod) { result in
+                                switch result {
+                                case .success:
+                                    completion(nil)
+                                case .failure(let error):
+                                    completion(error)
+                                }
+        }
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didUpdateShippingAddress address: STPAddress, completion: @escaping STPShippingMethodsCompletionBlock) {

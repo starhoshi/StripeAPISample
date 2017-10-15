@@ -28,9 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let secretKey = env["stripe_secret_key"] else {
             fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_secret_key をセット")
         }
-        guard let urlString = env["stripe_customer_key_url"],
+        guard let urlString = env["my_api_url"],
             let customerKeyURL = URL(string: urlString) else {
-            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_customer_key_url をセット")
+            fatalError("Product > Scheme > Edit Scheme > Environment Variables に my_api_url をセット")
         }
 
         let striptAPIConfig = StripeAPIConfiguration.shared

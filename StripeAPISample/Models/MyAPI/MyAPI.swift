@@ -64,7 +64,7 @@ extension MyAPI {
             }
 
             var path: String {
-                return ""
+                return "ephemeral_keys"
             }
 
             func response(from object: Any, urlResponse: HTTPURLResponse) throws -> CreateResponse {
@@ -72,6 +72,54 @@ extension MyAPI {
                     throw ResponseError.unexpectedObject(object)
                 }
                 return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject]
+            }
+        }
+    }
+
+    struct Charge {
+        typealias CreateResponse = Void
+        /// https://stripe.com/docs/api#create_customer
+        /// Creates a new customer object.
+        @discardableResult
+        static func create(result: STPPaymentResult,
+                           amount: Int,
+                           shippingAddress: STPAddress? = nil,
+                           shippingMethod: PKShippingMethod? = nil,
+                           handler: @escaping (Result<CreateResponse, SessionTaskError>) -> Void) -> SessionTask? {
+            let request = CreateRequest(result: result,
+                                        amount: amount,
+                                        shippingAddress: shippingAddress,
+                                        shippingMethod: shippingMethod)
+            return Session.shared.send(request, handler: handler)
+        }
+
+        private struct CreateRequest: MyAPIRequest {
+            func response(from object: Any, urlResponse: HTTPURLResponse) throws -> MyAPI.Charge.CreateResponse {
+                // Void
+            }
+
+            typealias Response = CreateResponse
+
+            let result: STPPaymentResult
+            let amount: Int
+            let shippingAddress: STPAddress?
+            let shippingMethod: PKShippingMethod?
+
+            var method: HTTPMethod {
+                return .post
+            }
+
+            var queryParameters: [String : Any]? {
+                var parameters: [String: Any] = [
+                    "source": result.source.stripeID,
+                    "amount": amount
+                ]
+//                parameters["shipping"] = STPAddress.shippingInfoForCharge(with: shippingAddress, shippingMethod: shippingMethod)
+                return parameters
+            }
+
+            var path: String {
+                return "charge"
             }
         }
     }
