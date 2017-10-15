@@ -10,6 +10,20 @@ import Foundation
 import APIKit
 import Result
 
+class StripeAPIConfiguration {
+    static let shared = StripeAPIConfiguration()
+    private init () { }
+
+    /// https://dashboard.stripe.com/account/apikeys
+    var publishableKey: String?
+
+    /// https://github.com/stripe/stripe-ios/blob/master/Stripe/STPEphemeralKey.m#L18
+    var secretKey: String?
+
+    /// https://github.com/stripe/example-ios-backend/tree/v11.0.0
+    var customerKeyURL: URL?
+}
+
 protocol StripeAPIRequest: Request {
 }
 
@@ -19,12 +33,7 @@ extension StripeAPIRequest {
     }
 
     var key: String {
-        let env = ProcessInfo.processInfo.environment
-        if let value = env["stripe_key"] {
-            return value
-        } else {
-            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_key をセット")
-        }
+        return StripeAPIConfiguration.shared.secretKey ?? StripeAPIConfiguration.shared.publishableKey ?? ""
     }
 
     var encodedKey: String {

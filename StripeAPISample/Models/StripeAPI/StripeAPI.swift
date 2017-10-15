@@ -11,11 +11,6 @@ import APIKit
 import Result
 
 class StripeAPI {
-
-}
-
-extension StripeAPI {
-
 }
 
 extension StripeAPI {

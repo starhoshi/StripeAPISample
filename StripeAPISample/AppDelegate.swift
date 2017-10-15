@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
+
+        let env = ProcessInfo.processInfo.environment
+        guard let publishableKey = env["stripe_key"] else {
+            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_key をセット")
+        }
+        guard let urlString = env["stripe_customer_key_url"],
+            let customerKeyURL = URL(string: urlString) else {
+            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_customer_key_url をセット")
+        }
+
+        let striptAPIConfig = StripeAPIConfiguration.shared
+        striptAPIConfig.publishableKey = publishableKey
+        striptAPIConfig.customerKeyURL = customerKeyURL
+
+        let stripeConfig = STPPaymentConfiguration.shared()
+        stripeConfig.publishableKey = publishableKey
+        stripeConfig.companyName = "Cookpad Inc."
+        stripeConfig.requiredBillingAddressFields = .full
+        stripeConfig.requiredShippingAddressFields = .all
+        stripeConfig.shippingType = .shipping
+        stripeConfig.additionalPaymentMethods = .all
 
         return true
     }

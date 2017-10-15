@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 final class SKUTableViewController: UITableViewController, Storyboardable {
     var product: StripeAPI.Entity.Product!
@@ -24,5 +25,8 @@ final class SKUTableViewController: UITableViewController, Storyboardable {
         navigationItem.title = product.name
         skuLabel.text = sku.attributes.description
         priceLabel.text = "\(sku.price)円"
+
+        let customerContext = STPCustomerContext(keyProvider: StripeCustomerKeyAPI.shared)
+
     }
 }
