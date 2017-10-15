@@ -28,7 +28,7 @@ final class SKUTableViewController: UITableViewController, Storyboardable {
         skuLabel.text = sku.attributes.description
         priceLabel.text = "\(sku.price)円"
 
-        let customerContext = STPCustomerContext(keyProvider: StripeCustomerKeyAPI.shared)
+        let customerContext = STPCustomerContext(keyProvider: MyAPI.shared)
         let paymentContext = STPPaymentContext(customerContext: customerContext,
                                                configuration: STPPaymentConfiguration.shared(),
                                                theme: .default())

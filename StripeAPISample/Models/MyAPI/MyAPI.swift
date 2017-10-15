@@ -1,5 +1,5 @@
 //
-//  StripeCustomerKeyAPI.swift
+//  MyAPI.swift
 //  StripeAPISample
 //
 //  Created by kensuke-hoshikawa on 2017/10/16.
@@ -11,8 +11,8 @@ import Stripe
 import APIKit
 import Result
 
-class StripeCustomerKeyAPI: NSObject, STPEphemeralKeyProvider {
-    static let shared = StripeCustomerKeyAPI()
+class MyAPI: NSObject, STPEphemeralKeyProvider {
+    static let shared = MyAPI()
     private override init () { }
 
     var url: URL {
@@ -24,7 +24,7 @@ class StripeCustomerKeyAPI: NSObject, STPEphemeralKeyProvider {
     }
 
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
-        StripeCustomerKeyAPI.EphemeralKey.create(apiVersion: apiVersion) { result in
+        MyAPI.EphemeralKey.create(apiVersion: apiVersion) { result in
             print(result)
             switch result {
             case .success(let response):
@@ -36,48 +36,7 @@ class StripeCustomerKeyAPI: NSObject, STPEphemeralKeyProvider {
     }
 }
 
-protocol StripeCustomerKeyAPIRequest: Request {
-}
-
-extension StripeCustomerKeyAPIRequest {
-    var baseURL: URL {
-        if let url = StripeAPIConfiguration.shared.customerKeyURL {
-            return url
-        }
-
-        fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_customer_key_url をセット")
-    }
-
-    var dataParser: DataParser {
-        return DecodableDataParser()
-    }
-}
-
-extension StripeCustomerKeyAPIRequest {
-    func intercept(urlRequest: URLRequest) throws -> URLRequest {
-        var urlRequest = urlRequest
-        urlRequest.timeoutInterval = 10.0
-
-        print("requestURL: \(urlRequest)")
-        print("requestHeader: \(urlRequest.allHTTPHeaderFields!)")
-        print("requestBody: \(String(data: urlRequest.httpBody ?? Data(), encoding: .utf8).debugDescription)")
-        return urlRequest
-    }
-
-    func intercept(object: Any, urlResponse: HTTPURLResponse) throws -> Any {
-        print("raw response header: \(urlResponse)")
-        print("raw response body: \(object)")
-        switch urlResponse.statusCode {
-        case 200..<300:
-            return object
-
-        default:
-            throw ResponseError.unacceptableStatusCode(urlResponse.statusCode)
-        }
-    }
-}
-
-extension StripeCustomerKeyAPI {
+extension MyAPI {
     struct EphemeralKey {
         typealias CreateResponse = [String: AnyObject]?
         /// https://stripe.com/docs/api#create_customer
@@ -89,7 +48,7 @@ extension StripeCustomerKeyAPI {
             return Session.shared.send(request, handler: handler)
         }
 
-        private struct CreateRequest: StripeCustomerKeyAPIRequest {
+        private struct CreateRequest: MyAPIRequest {
             typealias Response = CreateResponse
 
             let apiVersion: String

@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		3213E1481F925148002788B1 /* SKUTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E1471F925148002788B1 /* SKUTableViewController.swift */; };
 		3213E14A1F925157002788B1 /* SKUTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3213E1491F925157002788B1 /* SKUTableViewController.storyboard */; };
-		3213E1521F93D017002788B1 /* StripeCustomerKeyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E1511F93D017002788B1 /* StripeCustomerKeyAPI.swift */; };
+		3213E1521F93D017002788B1 /* MyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E1511F93D017002788B1 /* MyAPI.swift */; };
 		32BF1D921F90670000648759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF1D911F90670000648759 /* AppDelegate.swift */; };
 		32BF1D991F90670000648759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D981F90670000648759 /* Assets.xcassets */; };
 		32BF1D9C1F90670000648759 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BF1D9A1F90670000648759 /* LaunchScreen.storyboard */; };
 		32BF1DA71F90670000648759 /* StripeAPISampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF1DA61F90670000648759 /* StripeAPISampleTests.swift */; };
+		32C2D9481F9404DD003198B4 /* MyAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C2D9471F9404DD003198B4 /* MyAPIRequest.swift */; };
 		32F8ED0D1F90720600F7A386 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED0C1F90720600F7A386 /* Storyboardable.swift */; };
 		32F8ED101F90722E00F7A386 /* NSObjectProtocol+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED0F1F90722E00F7A386 /* NSObjectProtocol+Ex.swift */; };
 		32F8ED181F9075F700F7A386 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */; };
@@ -41,7 +42,7 @@
 /* Begin PBXFileReference section */
 		3213E1471F925148002788B1 /* SKUTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKUTableViewController.swift; sourceTree = "<group>"; };
 		3213E1491F925157002788B1 /* SKUTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SKUTableViewController.storyboard; sourceTree = "<group>"; };
-		3213E1511F93D017002788B1 /* StripeCustomerKeyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCustomerKeyAPI.swift; sourceTree = "<group>"; };
+		3213E1511F93D017002788B1 /* MyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAPI.swift; sourceTree = "<group>"; };
 		32BF1D8E1F90670000648759 /* StripeAPISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StripeAPISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BF1D911F90670000648759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32BF1D981F90670000648759 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		32BF1DA21F90670000648759 /* StripeAPISampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StripeAPISampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BF1DA61F90670000648759 /* StripeAPISampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPISampleTests.swift; sourceTree = "<group>"; };
 		32BF1DA81F90670000648759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32C2D9471F9404DD003198B4 /* MyAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAPIRequest.swift; sourceTree = "<group>"; };
 		32F8ED0C1F90720600F7A386 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		32F8ED0F1F90722E00F7A386 /* NSObjectProtocol+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Ex.swift"; sourceTree = "<group>"; };
 		32F8ED171F9075F700F7A386 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -118,12 +120,13 @@
 			path = StripeAPI;
 			sourceTree = "<group>";
 		};
-		3213E14C1F926361002788B1 /* StripeCustomerKeyAPI */ = {
+		3213E14C1F926361002788B1 /* MyAPI */ = {
 			isa = PBXGroup;
 			children = (
-				3213E1511F93D017002788B1 /* StripeCustomerKeyAPI.swift */,
+				3213E1511F93D017002788B1 /* MyAPI.swift */,
+				32C2D9471F9404DD003198B4 /* MyAPIRequest.swift */,
 			);
-			path = StripeCustomerKeyAPI;
+			path = MyAPI;
 			sourceTree = "<group>";
 		};
 		32BF1D851F90670000648759 = {
@@ -225,7 +228,7 @@
 		32F8ED211F90789100F7A386 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3213E14C1F926361002788B1 /* StripeCustomerKeyAPI */,
+				3213E14C1F926361002788B1 /* MyAPI */,
 				3213E14B1F926350002788B1 /* StripeAPI */,
 			);
 			path = Models;
@@ -468,7 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32F8ED1E1F90763500F7A386 /* CartViewController.swift in Sources */,
-				3213E1521F93D017002788B1 /* StripeCustomerKeyAPI.swift in Sources */,
+				3213E1521F93D017002788B1 /* MyAPI.swift in Sources */,
 				32F8ED181F9075F700F7A386 /* MainTabBarViewController.swift in Sources */,
 				32F8ED0D1F90720600F7A386 /* Storyboardable.swift in Sources */,
 				32F8ED251F9078CA00F7A386 /* StripeAPI.swift in Sources */,
@@ -479,6 +482,7 @@
 				32F8ED2D1F90883800F7A386 /* ProductDetailViewController.swift in Sources */,
 				32F8ED231F9078A000F7A386 /* StripeAPIRequest.swift in Sources */,
 				32F8ED1C1F90762B00F7A386 /* ProductsViewController.swift in Sources */,
+				32C2D9481F9404DD003198B4 /* MyAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
