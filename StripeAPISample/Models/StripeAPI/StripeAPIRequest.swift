@@ -33,10 +33,11 @@ extension StripeAPIRequest {
     }
 
     var key: String {
-        return StripeAPIConfiguration.shared.secretKey ?? StripeAPIConfiguration.shared.publishableKey ?? ""
+        return StripeAPIConfiguration.shared.secretKey ?? ""
     }
 
     var encodedKey: String {
+        print(key)
         let data: Data = self.key.data(using: String.Encoding.utf8)!
         return data.base64EncodedString()
     }

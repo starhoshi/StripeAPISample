@@ -22,8 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         let env = ProcessInfo.processInfo.environment
-        guard let publishableKey = env["stripe_key"] else {
-            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_key をセット")
+        guard let publishableKey = env["stripe_publishable_key"] else {
+            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_publishable_key をセット")
+        }
+        guard let secretKey = env["stripe_secret_key"] else {
+            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_secret_key をセット")
         }
         guard let urlString = env["stripe_customer_key_url"],
             let customerKeyURL = URL(string: urlString) else {
@@ -32,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let striptAPIConfig = StripeAPIConfiguration.shared
         striptAPIConfig.publishableKey = publishableKey
+        striptAPIConfig.secretKey = secretKey
         striptAPIConfig.customerKeyURL = customerKeyURL
 
         let stripeConfig = STPPaymentConfiguration.shared()

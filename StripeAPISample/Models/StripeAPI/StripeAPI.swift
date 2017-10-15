@@ -20,7 +20,7 @@ extension StripeAPI {
         /// Retrieves the details of an existing customer. You need only supply the unique customer identifier that was returned upon customer creation.
         @discardableResult
         static func retrieve(customerID: String, handler: @escaping (Result<RetrieveResponse, SessionTaskError>) -> Void) -> SessionTask? {
-            let request = StripeAPI.Customer.RetrieveRequest(customerID: customerID)
+            let request = RetrieveRequest(customerID: customerID)
             return Session.shared.send(request, handler: handler)
         }
 
@@ -45,7 +45,7 @@ extension StripeAPI {
         static func create(email: String? = nil,
                            description: String? = nil,
                            handler: @escaping (Result<CreateResponse, SessionTaskError>) -> Void) -> SessionTask? {
-            let request = StripeAPI.Customer.CreateRequest(email: email, description: description)
+            let request = CreateRequest(email: email, description: description)
             return Session.shared.send(request, handler: handler)
         }
 
@@ -82,7 +82,7 @@ extension StripeAPI {
         /// Returns a list of your products. The products are returned sorted by creation date, with the most recently created products appearing first.
         @discardableResult
         static func all(handler: @escaping (Result<AllResponse, SessionTaskError>) -> Void) -> SessionTask? {
-            let request = StripeAPI.Product.AllRequest()
+            let request = AllRequest()
             return Session.shared.send(request, handler: handler)
         }
 
