@@ -97,7 +97,7 @@ extension SKUTableViewController: STPPaymentContextDelegate {
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
-        buLabel.text = "complete"
+        buLabel.text = "Buy"
         let title: String
         let message: String
         switch status {
