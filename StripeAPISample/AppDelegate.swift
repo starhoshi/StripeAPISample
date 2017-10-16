@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         let stripeConfig = STPPaymentConfiguration.shared()
-        stripeConfig.publishableKey = publishableKey
+        stripeConfig.publishableKey = StripeAPIConfiguration.publishableKey
         stripeConfig.companyName = "Cookpad Inc."
         stripeConfig.requiredBillingAddressFields = .zip
         stripeConfig.requiredShippingAddressFields = .postalAddress
