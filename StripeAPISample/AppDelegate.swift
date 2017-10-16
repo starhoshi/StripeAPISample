@@ -21,18 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
 
-        let env = ProcessInfo.processInfo.environment
-        guard let publishableKey = env["stripe_publishable_key"] else {
-            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_publishable_key をセット")
-        }
-        guard let secretKey = env["stripe_secret_key"] else {
-            fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_secret_key をセット")
-        }
-        guard let urlString = env["my_api_url"],
-            let customerKeyURL = URL(string: urlString) else {
-            fatalError("Product > Scheme > Edit Scheme > Environment Variables に my_api_url をセット")
-        }
-
         let stripeConfig = STPPaymentConfiguration.shared()
         stripeConfig.publishableKey = publishableKey
         stripeConfig.companyName = "Cookpad Inc."

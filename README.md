@@ -1,6 +1,6 @@
 # StripeAPISample
 
-```
+```swift
 class StripeAPIConfiguration {
     /// https://dashboard.stripe.com/account/apikeys
     static let publishableKey = "pk_test_xxxxxx"
