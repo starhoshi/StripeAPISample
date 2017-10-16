@@ -10,20 +10,6 @@ import Foundation
 import APIKit
 import Result
 
-class StripeAPIConfiguration {
-    static let shared = StripeAPIConfiguration()
-    private init () { }
-
-    /// https://dashboard.stripe.com/account/apikeys
-    var publishableKey: String?
-
-    /// https://github.com/stripe/stripe-ios/blob/master/Stripe/STPEphemeralKey.m#L18
-    var secretKey: String?
-
-    /// https://github.com/stripe/example-ios-backend/tree/v11.0.0
-    var customerKeyURL: URL?
-}
-
 protocol StripeAPIRequest: Request {
 }
 
