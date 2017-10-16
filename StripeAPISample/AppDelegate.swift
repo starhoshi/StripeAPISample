@@ -33,11 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Product > Scheme > Edit Scheme > Environment Variables に my_api_url をセット")
         }
 
-        let striptAPIConfig = StripeAPIConfiguration.shared
-        striptAPIConfig.publishableKey = publishableKey
-        striptAPIConfig.secretKey = secretKey
-        striptAPIConfig.customerKeyURL = customerKeyURL
-
         let stripeConfig = STPPaymentConfiguration.shared()
         stripeConfig.publishableKey = publishableKey
         stripeConfig.companyName = "Cookpad Inc."

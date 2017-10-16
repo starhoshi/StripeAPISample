@@ -16,11 +16,7 @@ class MyAPI: NSObject, STPEphemeralKeyProvider {
     private override init () { }
 
     var url: URL {
-        if let url = StripeAPIConfiguration.shared.customerKeyURL {
-            return url
-        }
-
-        fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_customer_key_url をセット")
+        return StripeAPIConfiguration.customerKeyURL
     }
 
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {

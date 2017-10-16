@@ -14,11 +14,7 @@ protocol MyAPIRequest: Request {
 
 extension MyAPIRequest {
     var baseURL: URL {
-        if let url = StripeAPIConfiguration.shared.customerKeyURL {
-            return url
-        }
-
-        fatalError("Product > Scheme > Edit Scheme > Environment Variables に stripe_customer_key_url をセット")
+        return StripeAPIConfiguration.customerKeyURL
     }
 
     var dataParser: DataParser {

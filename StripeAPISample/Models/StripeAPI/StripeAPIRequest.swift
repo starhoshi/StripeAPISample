@@ -19,7 +19,7 @@ extension StripeAPIRequest {
     }
 
     var key: String {
-        return StripeAPIConfiguration.shared.secretKey ?? ""
+        return StripeAPIConfiguration.secretKey
     }
 
     var encodedKey: String {
