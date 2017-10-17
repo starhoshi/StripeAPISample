@@ -106,10 +106,10 @@ extension StripeAPI {
         /// Creates a new order object.
         @discardableResult
         static func create(currency: StripeAPI.Entity.Currency,
-                           customer: String?,
-                           email: String?,
-                           items: Items?,
-                           metadata: [String: String]?,
+                           customer: String? = nil,
+                           email: String? = nil,
+                           items: Items? = nil,
+                           metadata: [String: String]? = nil,
                            handler: @escaping (Result<CreateResponse, SessionTaskError>) -> Void) -> SessionTask? {
             let request = CreateRequest(currency: currency, customer: customer, email: email, items: items, metadata: metadata)
             return Session.shared.send(request, handler: handler)

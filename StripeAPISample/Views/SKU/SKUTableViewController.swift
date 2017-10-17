@@ -146,9 +146,7 @@ extension SKUTableViewController: STPPaymentContextDelegate {
             // 本当はサーバ側でやる
             StripeAPI.Order.create(currency: strongSelf.sku.currency,
                                    customer: success?.stripeID,
-                                   email: nil,
-                                   items: items,
-                                   metadata: nil) { result in
+                                   items: items) { result in
                 switch result {
                 case .success(let response):
                     StripeAPI.Order.pay(order: response, customer: success?.stripeID) { payResult in
