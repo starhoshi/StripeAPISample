@@ -12,6 +12,7 @@ import Stripe
 final class SKUTableViewController: UITableViewController, Storyboardable {
     var product: StripeAPI.Entity.Product!
     var sku: StripeAPI.Entity.SKU!
+    var customerContext: STPCustomerContext!
     var paymentContext: STPPaymentContext!
 
     @IBOutlet weak var skuLabel: UILabel!
@@ -28,14 +29,14 @@ final class SKUTableViewController: UITableViewController, Storyboardable {
         skuLabel.text = sku.attributes.description
         priceLabel.text = "\(sku.price)円"
 
-        let customerContext = STPCustomerContext(keyProvider: MyAPI.shared)
+        customerContext = STPCustomerContext(keyProvider: MyAPI.shared)
         let paymentContext = STPPaymentContext(customerContext: customerContext,
                                                configuration: STPPaymentConfiguration.shared(),
                                                theme: .default())
         let userInformation = STPUserInformation()
         paymentContext.prefilledInformation = userInformation
         paymentContext.paymentAmount = sku.price
-        paymentContext.paymentCurrency = sku.currency
+        paymentContext.paymentCurrency = sku.currency.rawValue
         self.paymentContext = paymentContext
         self.paymentContext.delegate = self
         paymentContext.hostViewController = self
@@ -43,11 +44,11 @@ final class SKUTableViewController: UITableViewController, Storyboardable {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
-        case [1,0]:
+        case [1, 0]:
             paymentContext.pushPaymentMethodsViewController()
-        case [1,1]:
+        case [1, 1]:
             paymentContext.pushShippingViewController()
-        case [2,0]:
+        case [2, 0]:
             buLabel.text = "Loading"
             paymentContext.requestPayment()
         default:
@@ -117,15 +118,44 @@ extension SKUTableViewController: STPPaymentContextDelegate {
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        MyAPI.Charge.create(result: paymentResult,
-                            amount: paymentContext.paymentAmount,
-                            shippingAddress: paymentContext.shippingAddress, shippingMethod: paymentContext.selectedShippingMethod) { result in
-                                switch result {
-                                case .success:
-                                    completion(nil)
-                                case .failure(let error):
-                                    completion(error)
-                                }
+//        MyAPI.Charge.create(result: paymentResult,
+//                            amount: paymentContext.paymentAmount,
+//                            shippingAddress: paymentContext.shippingAddress, shippingMethod: paymentContext.selectedShippingMethod) { result in
+//                                switch result {
+//                                case .success:
+//                                    completion(nil)
+//                                case .failure(let error):
+//                                    completion(error)
+//                                }
+//        }
+
+        customerContext.retrieveCustomer { [weak self] success, error in
+            guard let strongSelf = self else { return }
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            let items = Items(amount: paymentContext.paymentAmount,
+                              currency: strongSelf.sku.currency,
+                              description: nil,
+                              parent: self?.sku.id,
+                              quantity: 1,
+                              type: "sku")
+            // 本当はサーバ側でやる
+            let request = StripeAPI.Order.Request.create(currency: strongSelf.sku.currency,
+                                                         customer: success?.stripeID,
+                                                         email: nil,
+                                                         items: items,
+                                                         metadata: nil)
+            StripeSession.shared.send(request) { result in
+                switch result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+            }
         }
     }
 
@@ -152,7 +182,7 @@ extension SKUTableViewController: STPPaymentContextDelegate {
             }
             else if address.country == "AQ" {
                 let error = NSError(domain: "ShippingError", code: 123, userInfo: [NSLocalizedDescriptionKey: "Invalid Shipping Address",
-                                                                                   NSLocalizedFailureReasonErrorKey: "We can't ship to this country."])
+                                        NSLocalizedFailureReasonErrorKey: "We can't ship to this country."])
                 completion(.invalid, error, nil, nil)
             }
             else {

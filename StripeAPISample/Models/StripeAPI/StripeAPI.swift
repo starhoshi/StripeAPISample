@@ -59,7 +59,7 @@ extension StripeAPI {
                 return .post
             }
 
-            var queryParameters: [String : Any]? {
+            var queryParameters: [String: Any]? {
                 var parameters: [String: Any] = [:]
                 if let email = email {
                     parameters["email"] = email
@@ -98,4 +98,105 @@ extension StripeAPI {
             }
         }
     }
+}
+
+extension StripeAPI {
+    struct Order: Decodable {
+        let name: String
+
+        enum Request: StripeAPIRequest {
+            case create(
+                currency: Currency,
+//            coupon: ?,
+                customer: String?,
+                email: String?,
+                items: Items?,
+                metadata: [String: String]?
+//            shipping: [String: String]?
+            )
+            case retrieve
+
+            public typealias Response = Order
+
+            public var method: HTTPMethod {
+                switch self {
+                case .create: return .post
+                case .retrieve: return .get
+                }
+            }
+
+            public var path: String {
+                return "orders"
+            }
+
+            var bodyParameters: BodyParameters? {
+                return JSONBodyParameters(JSONObject: q ?? [:])
+            }
+
+            public var q: [String: Any]? {
+                switch self {
+                case let .create(currency, customer, email, items, metadata):
+                    var parameters: [String: Any] = [:]
+                    parameters["currency"] = currency.rawValue
+                    if let customer = customer {
+                        parameters["customer"] = customer
+                    }
+                    if let email = email {
+                        parameters["email"] = email
+                    }
+                    if let items = items {
+                        parameters["items"] = items.array
+                    }
+                    if let metadata = metadata {
+                        parameters["metadata"] = metadata
+                    }
+                    return parameters
+                case .retrieve:
+                    return nil
+                }
+            }
+        }
+    }
+}
+
+struct Items {
+    let amount: Int?
+    let currency: Currency?
+    let description: String?
+    let parent: String?
+    let quantity: Int?
+    let type: String?
+
+    var array: [[String: Any]] {
+        var a: [[String: Any]] = []
+        if let amount = amount {
+            a.append(["amount": amount])
+        }
+        if let currency = currency {
+            a.append(["currency": currency.rawValue])
+        }
+        if let description = description {
+            a.append(["description": description])
+        }
+        if let parent = parent {
+            a.append(["parent": parent])
+        }
+        if let quantity = quantity {
+            a.append(["quantity": quantity])
+        }
+        if let type = type {
+            a.append(["type": type])
+        }
+
+        return a
+    }
+}
+
+enum Currency: String, Decodable {
+    case jpy
+    case usd
+}
+
+class StripeSession: Session {
+
 }

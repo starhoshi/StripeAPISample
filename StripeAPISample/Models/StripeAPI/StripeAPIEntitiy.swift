@@ -113,7 +113,7 @@ extension StripeAPI.Entity {
         let active: Bool
         let attributes: [String: String]
         let created: TimeInterval
-        let currency: String
+        let currency: Currency
         let image: URL?
         let inventory: Inventory
         let livemode: Bool

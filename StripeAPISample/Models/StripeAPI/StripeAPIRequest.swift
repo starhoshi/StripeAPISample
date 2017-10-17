@@ -52,9 +52,6 @@ extension StripeAPIRequest where Response: Decodable {
         guard let data: Data = object as? Data else {
             throw ResponseError.unexpectedObject(object)
         }
-        if let string = String(data: data, encoding: .utf8) {
-            print("response: \(string)")
-        }
         return try JSONDecoder().decode(Response.self, from: data)
     }
 }
@@ -72,7 +69,12 @@ extension StripeAPIRequest {
 
     func intercept(object: Any, urlResponse: HTTPURLResponse) throws -> Any {
         print("raw response header: \(urlResponse)")
-        print("raw response body: \(object)")
+        guard let data: Data = object as? Data else {
+            throw ResponseError.unexpectedObject(object)
+        }
+        if let string = String(data: data, encoding: .utf8) {
+            print("response: \(string)")
+        }
         switch urlResponse.statusCode {
         case 200..<300:
             return object
