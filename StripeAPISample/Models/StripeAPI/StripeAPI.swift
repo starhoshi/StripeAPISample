@@ -102,7 +102,7 @@ extension StripeAPI {
 
 extension StripeAPI {
     struct Order: Decodable {
-        let name: String
+        let id: String
 
         enum Request: StripeAPIRequest {
             case create(
@@ -129,11 +129,7 @@ extension StripeAPI {
                 return "orders"
             }
 
-            var bodyParameters: BodyParameters? {
-                return JSONBodyParameters(JSONObject: q ?? [:])
-            }
-
-            public var q: [String: Any]? {
+            public var queryParameters: [String: Any]? {
                 switch self {
                 case let .create(currency, customer, email, items, metadata):
                     var parameters: [String: Any] = [:]
@@ -145,7 +141,7 @@ extension StripeAPI {
                         parameters["email"] = email
                     }
                     if let items = items {
-                        parameters["items"] = items.array
+                        parameters += items.formUrlEncodedValue
                     }
                     if let metadata = metadata {
                         parameters["metadata"] = metadata
@@ -167,25 +163,25 @@ struct Items {
     let quantity: Int?
     let type: String?
 
-    var array: [[String: Any]] {
-        var a: [[String: Any]] = []
+    var formUrlEncodedValue: [String: Any] {
+        var a: [String: Any] = [:]
         if let amount = amount {
-            a.append(["amount": amount])
+            a["items[][amount]"] = amount
         }
         if let currency = currency {
-            a.append(["currency": currency.rawValue])
+            a["items[][currency]"] = currency
         }
         if let description = description {
-            a.append(["description": description])
+            a["items[][description]"] = description
         }
         if let parent = parent {
-            a.append(["parent": parent])
+            a["items[][parent]"] = parent
         }
         if let quantity = quantity {
-            a.append(["quantity": quantity])
+            a["items[][quantity]"] = quantity
         }
         if let type = type {
-            a.append(["type": type])
+            a["items[][type]"] = type
         }
 
         return a
@@ -199,4 +195,10 @@ enum Currency: String, Decodable {
 
 class StripeSession: Session {
 
+}
+
+func += <K, V> (left: inout [K:V], right: [K:V]) {
+    for (k, v) in right {
+        left[k] = v
+    }
 }
