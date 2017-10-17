@@ -150,8 +150,15 @@ extension SKUTableViewController: STPPaymentContextDelegate {
                                    items: items,
                                    metadata: nil) { result in
                 switch result {
-                case .success:
-                    completion(nil)
+                case .success(let response):
+                    StripeAPI.Order.pay(order: response, customer: success?.stripeID) { payResult in
+                        switch payResult {
+                        case .success:
+                            completion(nil)
+                        case .failure(let error):
+                            completion(error)
+                        }
+                    }
                 case .failure(let error):
                     completion(error)
                 }

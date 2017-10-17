@@ -106,11 +106,11 @@ extension StripeAPI {
         /// Creates a new order object.
         @discardableResult
         static func create(currency: StripeAPI.Entity.Currency,
-                        customer: String?,
-                        email: String?,
-                        items: Items?,
-                        metadata: [String: String]?,
-                        handler: @escaping (Result<CreateResponse, SessionTaskError>) -> Void) -> SessionTask? {
+                           customer: String?,
+                           email: String?,
+                           items: Items?,
+                           metadata: [String: String]?,
+                           handler: @escaping (Result<CreateResponse, SessionTaskError>) -> Void) -> SessionTask? {
             let request = CreateRequest(currency: currency, customer: customer, email: email, items: items, metadata: metadata)
             return Session.shared.send(request, handler: handler)
         }
@@ -146,6 +146,54 @@ extension StripeAPI {
                 if let items = items {
                     parameters += items.formUrlEncodedValue
                 }
+                if let metadata = metadata {
+                    parameters["metadata"] = metadata
+                }
+                return parameters
+            }
+        }
+
+
+        typealias PayResponse = StripeAPI.Entity.Order
+        /// https://stripe.com/docs/api#create_order
+        /// Creates a new order object.
+        @discardableResult
+        static func pay(order: StripeAPI.Entity.Order,
+                        customer: String? = nil,
+                        email: String? = nil,
+                        metadata: [String: String]? = nil,
+                        handler: @escaping (Result<PayResponse, SessionTaskError>) -> Void) -> SessionTask? {
+            let request = PayRequest(order: order, customer: customer, email: email, metadata: metadata)
+            return Session.shared.send(request, handler: handler)
+        }
+
+        private struct PayRequest: StripeAPIRequest {
+            typealias Response = PayResponse
+
+            let order: StripeAPI.Entity.Order
+            let customer: String?
+//            let source: Source
+//            let applicationFee:
+            let email: String?
+            let metadata: [String: String]?
+
+            var method: HTTPMethod {
+                return .post
+            }
+
+            public var path: String {
+                return "orders/\(order.id)"
+            }
+
+            public var queryParameters: [String: Any]? {
+                var parameters: [String: Any] = [:]
+                if let customer = customer {
+                    parameters["customer"] = customer
+                }
+                if let email = email {
+                    parameters["email"] = email
+                }
+
                 if let metadata = metadata {
                     parameters["metadata"] = metadata
                 }
