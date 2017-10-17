@@ -161,3 +161,41 @@ extension StripeAPI.Entity {
         let width: Float
     }
 }
+
+struct Items {
+    let amount: Int?
+    let currency: Currency?
+    let description: String?
+    let parent: String?
+    let quantity: Int?
+    let type: String?
+
+    var formUrlEncodedValue: [String: Any] {
+        var a: [String: Any] = [:]
+        if let amount = amount {
+            a["items[][amount]"] = amount
+        }
+        if let currency = currency {
+            a["items[][currency]"] = currency
+        }
+        if let description = description {
+            a["items[][description]"] = description
+        }
+        if let parent = parent {
+            a["items[][parent]"] = parent
+        }
+        if let quantity = quantity {
+            a["items[][quantity]"] = quantity
+        }
+        if let type = type {
+            a["items[][type]"] = type
+        }
+
+        return a
+    }
+}
+
+enum Currency: String, Decodable {
+    case jpy
+    case usd
+}
