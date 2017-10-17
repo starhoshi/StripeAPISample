@@ -142,13 +142,13 @@ extension SKUTableViewController: STPPaymentContextDelegate {
                               parent: self?.sku.id,
                               quantity: 1,
                               type: "sku")
+
             // 本当はサーバ側でやる
-            let request = StripeAPI.Order.Request.create(currency: strongSelf.sku.currency,
-                                                         customer: success?.stripeID,
-                                                         email: nil,
-                                                         items: items,
-                                                         metadata: nil)
-            StripeSession.shared.send(request) { result in
+            StripeAPI.Order.create(currency: strongSelf.sku.currency,
+                                   customer: success?.stripeID,
+                                   email: nil,
+                                   items: items,
+                                   metadata: nil) { result in
                 switch result {
                 case .success:
                     completion(nil)

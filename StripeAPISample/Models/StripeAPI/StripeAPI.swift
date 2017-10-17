@@ -98,31 +98,36 @@ extension StripeAPI {
             }
         }
     }
-}
 
-extension StripeAPI {
-    struct Order: Decodable {
-        let id: String
+    /// https://stripe.com/docs/api#orders
+    struct Order {
+        typealias CreateResponse = StripeAPI.Entity.Order
+        /// https://stripe.com/docs/api#create_order
+        /// Creates a new order object.
+        @discardableResult
+        static func create(currency: StripeAPI.Entity.Currency,
+                        customer: String?,
+                        email: String?,
+                        items: Items?,
+                        metadata: [String: String]?,
+                        handler: @escaping (Result<CreateResponse, SessionTaskError>) -> Void) -> SessionTask? {
+            let request = CreateRequest(currency: currency, customer: customer, email: email, items: items, metadata: metadata)
+            return Session.shared.send(request, handler: handler)
+        }
 
-        enum Request: StripeAPIRequest {
-            case create(
-                currency: Currency,
-//            coupon: ?,
-                customer: String?,
-                email: String?,
-                items: Items?,
-                metadata: [String: String]?
-//            shipping: [String: String]?
-            )
-            case retrieve
+        private struct CreateRequest: StripeAPIRequest {
+            typealias Response = CreateResponse
 
-            public typealias Response = Order
+            let currency: StripeAPI.Entity.Currency
+//            let coupon: Any
+            let customer: String?
+            let email: String?
+            let items: Items?
+            let metadata: [String: String]?
+//            let shipping: [String: String]?
 
-            public var method: HTTPMethod {
-                switch self {
-                case .create: return .post
-                case .retrieve: return .get
-                }
+            var method: HTTPMethod {
+                return .post
             }
 
             public var path: String {
@@ -130,28 +135,22 @@ extension StripeAPI {
             }
 
             public var queryParameters: [String: Any]? {
-                switch self {
-                case let .create(currency, customer, email, items, metadata):
-                    var parameters: [String: Any] = [:]
-                    parameters["currency"] = currency.rawValue
-                    if let customer = customer {
-                        parameters["customer"] = customer
-                    }
-                    if let email = email {
-                        parameters["email"] = email
-                    }
-                    if let items = items {
-                        parameters += items.formUrlEncodedValue
-                    }
-                    if let metadata = metadata {
-                        parameters["metadata"] = metadata
-                    }
-                    return parameters
-                case .retrieve:
-                    return nil
+                var parameters: [String: Any] = [:]
+                parameters["currency"] = currency.rawValue
+                if let customer = customer {
+                    parameters["customer"] = customer
                 }
+                if let email = email {
+                    parameters["email"] = email
+                }
+                if let items = items {
+                    parameters += items.formUrlEncodedValue
+                }
+                if let metadata = metadata {
+                    parameters["metadata"] = metadata
+                }
+                return parameters
             }
         }
     }
 }
-

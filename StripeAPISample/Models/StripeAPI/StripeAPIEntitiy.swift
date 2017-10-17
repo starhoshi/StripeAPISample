@@ -20,9 +20,7 @@ extension StripeAPI.Entity {
         let has_more: Bool
         let data:[T]
     }
-}
 
-extension StripeAPI.Entity {
     struct Customer: Decodable {
         let id: String
         let object: String
@@ -49,9 +47,7 @@ extension StripeAPI.Entity {
             case livemode
         }
     }
-}
 
-extension StripeAPI.Entity {
     struct Product: Decodable {
         let id: String
         let object: String
@@ -160,11 +156,20 @@ extension StripeAPI.Entity {
         let weight: Float
         let width: Float
     }
+
+    enum Currency: String, Decodable {
+        case jpy
+        case usd
+    }
+
+    struct Order: Decodable {
+        let id: String
+    }
 }
 
 struct Items {
     let amount: Int?
-    let currency: Currency?
+    let currency: StripeAPI.Entity.Currency?
     let description: String?
     let parent: String?
     let quantity: Int?
@@ -193,9 +198,4 @@ struct Items {
 
         return a
     }
-}
-
-enum Currency: String, Decodable {
-    case jpy
-    case usd
 }
